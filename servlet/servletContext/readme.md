@@ -1,0 +1,7 @@
+在实际需求中，网站在线人数显示是如何是实现的呢？如果通过读取数据库实现的话，读取数据库的频率过于频繁，这种情况下，我们可以使用servletContext。
+
+servletContext是一个公用的空间，可以被所有的客户访问。WEB容器在启动时，它会为每个WEB应用程序都创建一个对应的servletContext对象，它代表当前WEB应用。
+
+servletContext对象可以通过ServletConfig.getServletContext方法获得对ServletContext对象的引用，也可以通过this.getServlet()来获得其对象的引用。
+
+由于一个WEB应用中的所有Servlet共享同一个ServletContext对象，因此Servlet对象之间可以通过ServletContext对象来实现通讯。ServletContext对象通常也被称之为context域对象。

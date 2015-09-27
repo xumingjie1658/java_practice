@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+    
+    <servlet>
+        <servlet-name>SetServletContext</servlet-name>
+        <servlet-class>SetServletContext</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SetServletContext</servlet-name>
+        <url-pattern>/setServletContext</url-pattern>        
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetServletContext</servlet-name>
+        <servlet-class>GetServletContext</servlet-class>
+        <init-param>
+            <param-name>region</param-name>
+            <param-value>Beijing</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetServletContext</servlet-name>
+        <url-pattern>/getServletContext</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RemoveServletContext</servlet-name>
+        <servlet-class>RemoveServletContext</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RemoveServletContext</servlet-name>
+        <url-pattern>/removeServletContext</url-pattern>        
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReadProperties</servlet-name>
+        <servlet-class>ReadProperties</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ReadProperties</servlet-name>
+        <url-pattern>/readProperties</url-pattern>        
+    </servlet-mapping>
+
+    <context-param>
+        <param-name>country</param-name>
+        <param-value>China</param-value>
+    </context-param>
+
+</web-app>

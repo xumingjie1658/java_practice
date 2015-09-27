@@ -1,0 +1,5 @@
+通过MyWebServer.java的简单DEMO可以看到，servlet容器如何通过ServerSocket对端口进行监听，然后通过Socket从访问队列中取出访问请求，并将相应的HTML页面代码通过socket返回给客户端。
+
+客户端访问127.0.0.1:9999可以看到HelloWorld.html页面。
+
+通过调用Socket对象的getInputStream的方法，可以获得客户端请求的http包
