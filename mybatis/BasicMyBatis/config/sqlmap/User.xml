@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace命名空间,隔离sql,进行分类管理 -->
+<mapper namespace="test">
+
+    <!-- 通过select标签执行数据库的查询
+        id : 标识映射文件中的sql,成为statement的id,将sql封装到mappedStatement对象中
+        parameterType:指定输入参数类型
+        resultTYpe:指定sql输出结果所映射的java对象
+        #{}表示一个占位符
+        #{id}表示接收输入的参数,参数名称为id,如果输入的简单类型,#{}中的参数名可以任意
+
+    -->
+    <select id="findUserById" parameterType="int" resultType="com.mybatis.po.User">
+        SELECT * FROM USER WHERE ID=#{id}
+    </select>
+
+    <!-- 返回多条记录 resultType仍为User
+        ${}:表示拼接sql串,将接受到的参数的内容任何修饰拼接在sql中. #{}:是表示字符串,会使用''包含
+        使用${}拼接sql会引起sql注入
+        ${value}: 接受输入参数类型,如果传入类型是简单类型,${}中只能使用${value}
+    -->
+    <select id="findUserByName" parameterType="java.lang.String" resultType="com.mybatis.po.User">
+        SELECT * FROM USER WHERE username LIKE '%${value}%'
+    </select>
+
+    <!-- 添加用户
+        parameterType: 指定输入参数类型是pojo(包括用户信息)
+        #{}中指定pojod的属性名,接收到pojo对象的属性值,mybatis通过OGNL获取对象的属性值
+    -->
+    <insert id="insertUser" parameterType="com.mybatis.po.User">
+        <!-- 将插入数据的主键返回,返回到User对象中
+            SELECT LAST_INSERT_ID(): 得到刚insert进去的主键值,只使用于自增主键
+            keyProperty: 将查询到的主键值设置到parameterType中的哪个属性值
+            order: 相对于insert的执行顺序
+            resultType: 指定返回属性的类型
+        -->
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+          SELECT LAST_INSERT_ID()
+        </selectKey>
+
+        INSERT INTO user(username,birthday,sex,address) value(#{username},#{birthday},#{sex},#{address})
+    </insert>
+
+    <!-- 删除用户
+        根据id删除用户,需要输入id值
+    -->
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        delete from user where id=#{id}
+    </delete>
+
+    <!-- 更新用户
+        需要传入用户id和更新信息(id必须存在)
+    -->
+    <update id="updateUser" parameterType="com.mybatis.po.User">
+        UPDATE USER SET username=#{username},birthday=#{birthday},sex=#{sex},address=#{address} where id=#{id}
+    </update>
+
+
+</mapper>
