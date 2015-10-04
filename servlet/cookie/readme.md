@@ -8,5 +8,7 @@ cookie可以使用js中的document.cookie在客户端生成，也可以通过服
 
 当有cookie时，Request Header中会将Cookie:type=Server作为一部分，传递到后台。
 
+在使用客户端生成cookie时，只需要修改document.cookie元素即可，这里要注意的是，Cookie的值的要求是“只能用可以用在 URL 编码中的字符”，所以我们要使用escape函数对值进行url编码。
 
+cookie是和浏览器相关的，chrome和ie之间的cookie是不通用的，但是，同为ie内核的ie和360是公用的。session
 
