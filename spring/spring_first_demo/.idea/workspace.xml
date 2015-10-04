@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a1134f5-66f0-40b6-8ff6-dd0a56e8695b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../testspring2/src/com/spring/test/UserServiceImplTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../servlet/cookie/readme.md" afterPath="$PROJECT_DIR$/../../servlet/cookie/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../servlet/servletContext/readme.md" afterPath="$PROJECT_DIR$/../../servlet/servletContext/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../testspring2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../testspring2/.idea/workspace.xml" />
     </list>
     <ignored path="spring_demo.iws" />
     <ignored path=".idea/workspace.xml" />
